@@ -86,6 +86,18 @@
     </repository>
   </repositories>
   <dependencies>
+    <dependency>
+      <groupId>com.conveyal</groupId>
+      <artifactId>gtfs-lib</artifactId>
+      <version>${project.version}</version>
+
+      <exclusions>
+        <exclusion>
+          <groupId>org.slf4j</groupId>
+          <artifactId>slf4j-simple</artifactId>
+        </exclusion>
+      </exclusions>
+    </dependency>
     <!-- CSV parser -->
     <dependency>
       <groupId>net.sourceforge.javacsv</groupId>
@@ -153,16 +165,13 @@
       <artifactId>aws-java-sdk-s3</artifactId>
       <version>1.11.18</version>
     </dependency>
-      <dependency>
-          <groupId>net.sf.trove4j</groupId>
-          <artifactId>trove4j</artifactId>
-          <version>3.0.3</version>
-      </dependency>
-      <dependency>
-          <groupId>net.sf.trove4j</groupId>
-          <artifactId>trove4j</artifactId>
-          <version>3.0.3</version>
-      </dependency>
+
+    <dependency>
+        <groupId>net.sf.trove4j</groupId>
+        <artifactId>trove4j</artifactId>
+        <version>3.0.3</version>
+    </dependency>
+
   </dependencies>
 
 
