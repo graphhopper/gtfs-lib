@@ -129,6 +129,20 @@ public abstract class Entity implements Serializable {
             return val;
         }
 
+        protected int getIntField(String column, int defaultValue, int min, int max) throws IOException {
+            String str = getFieldCheckRequired(column, false);
+            int val = INT_MISSING;
+            if (str == null) {
+                val = defaultValue;
+            } else try {
+                val = Integer.parseInt(str);
+                checkRangeInclusive(min, max, val);
+            } catch (NumberFormatException nfe) {
+                feed.errors.add(new NumberParseError(tableName, row, column));
+            }
+            return val;
+        }
+
         /**
          * Fetch the given column of the current row, and interpret it as a time in the format HH:MM:SS.
          * @return the time value in seconds since midnight
