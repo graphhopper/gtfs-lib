@@ -58,7 +58,7 @@ public class FareAttribute extends Entity {
                 fa.currency_type = getStringField("currency_type", true);
                 fa.payment_method = getIntField("payment_method", true, 0, 1);
                 fa.transfers = getIntField("transfers", Integer.MAX_VALUE, 0, Integer.MAX_VALUE);
-                fa.transfer_duration = getIntField("transfer_duration", false, 0, 24 * 60 * 60);
+                fa.transfer_duration = getIntField("transfer_duration", Integer.MAX_VALUE, 0, Integer.MAX_VALUE);
                 fa.feed = feed;
                 fa.feed_id = feed.feedId;
                 fare.fare_attribute = fa;
